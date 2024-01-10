@@ -14,5 +14,10 @@ export const GlobalStyles = createGlobalStyle `
   body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
+    min-width: 32rem;
+  }
+  
+  section {
+    width: 100%;
   }
 `
