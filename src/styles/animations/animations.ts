@@ -1,5 +1,11 @@
 import {keyframes} from 'styled-components';
 
+export const Mover = keyframes `
+  0% {transform: translateY(0)}
+  50% {transform: translateY(-2rem)}
+  100% {transform: translateY(0)}
+`
+
 export const Moveup = keyframes `
   0% {
     background-position: left 0 top 0;
