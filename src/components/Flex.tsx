@@ -25,4 +25,5 @@ export const Flex = styled.div<FlexPropsType>`
   flex: ${props => props.flex};
   padding: ${props => props.padding};
   background: ${props => props.background};
+  margin: 0 auto;
 `

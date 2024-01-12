@@ -10,7 +10,7 @@ import {Flex} from '../../components/Flex';
 export const Welcome = () => {
     return (
         <WelcomeSection>
-            <Flex align='center' justify='space-between' maxWidth='95vw' padding='0 0 0 20rem'>
+            <Flex align='center' justify='space-between' maxWidth='80vw' padding='0 0 0 20rem'>
                 <div>
                     <CustomSpan>HELLO!
                         <span> STRANGER!</span>

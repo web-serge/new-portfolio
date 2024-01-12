@@ -1,4 +1,4 @@
-import styled, {StyledComponentProps} from 'styled-components';
+import styled from 'styled-components';
 import * as React from 'react';
 
 type ButtonPropsType = {
