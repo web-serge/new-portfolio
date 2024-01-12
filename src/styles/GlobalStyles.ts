@@ -10,6 +10,11 @@ export const GlobalStyles = createGlobalStyle `
   
   ul {
     list-style: none;
+    width: 100%;
+  }
+  
+  li {
+    width: 100%;
   }
   
   html {
