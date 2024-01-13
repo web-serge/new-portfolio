@@ -21,22 +21,24 @@ export const Icon = (props: IconPropsType) => {
     const iconDefinition: IconDefinition = findIconDefinition(iconLookup)
 
     return (
-        <Link type={props.type} style={{color: `${props.color}`}}>
+        <Link type={props.type} style={{color: `${props.color}`}} background={props.color}>
             <span style={{fontSize: `${props.size}rem`}}>
                 <FontAwesomeIcon icon={iconDefinition}/>
             </span>
-            {props.title ?
-                <HiddenSpan >
-                    <span style={{fontSize: `${props.size}rem`}}><FontAwesomeIcon icon={iconDefinition}/></span> <br/>
-                    {props.title}
-                </HiddenSpan>
-                : null}
+            {!!props.title ? <HiddenSpan>
+                    <span style={{fontSize: `${props.size}rem`}}>
+                        <FontAwesomeIcon icon={iconDefinition}/>
+                    </span>
+                <br/>
+                {props.title}
+            </HiddenSpan> : null}
         </Link>
     )
 }
 
 type LinkPropsType = {
     type?: 'social' | 'navigation'
+    background: string
 }
 
 
@@ -48,12 +50,21 @@ const Link = styled.a<LinkPropsType>`
   line-height: 1;
   width: 100%;
 
+  &:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: ${props => props.background || 'grey'};
+    opacity: 30%;
+  }
+
   ${props => props.type === 'navigation' && css`
     padding: 3rem 0;
     border-bottom: 1px solid #e5e5e5;
 
     & > span:nth-child(1) {
-      transition: .3s;
+      transition: .5s;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -61,16 +72,19 @@ const Link = styled.a<LinkPropsType>`
       pointer-events: none;
     }
 
+    // hovers effects
+
     &:hover > span:nth-child(1) {
-      transform: translate(0, -100px);
+      transform: translate(0, -10rem);
     }
-    
+
     & > span + span {
     }
-    
+
     &:hover > span {
-      transform: translate(-50% , -10%);
+      transform: translate(-50%, 0);
     }
+
     &:hover > span + span {
       top: 50%;
       left: 50%;
@@ -84,7 +98,7 @@ const Link = styled.a<LinkPropsType>`
     padding: 1rem 0;
 
     & span {
-      transition: .3s;
+      transition: .5s;
       display: inline-block;
     }
 
@@ -96,49 +110,10 @@ const Link = styled.a<LinkPropsType>`
 
 const HiddenSpan = styled.span`
   position: absolute;
-  transition: .3s;
+  transition: .5s;
   width: 100%;
   top: 100%;
   left: 50%;
   transform: translate(-50%, 50%);
   pointer-events: none;
 `
-
-
-// const Link = styled.a<LinkPropsType>`
-//   position: relative;
-//   line-height: 1;
-//   width: 100%;
-//   cursor: pointer;
-//   display: block;
-//   padding: 2.5rem 0;
-//   overflow: hidden;
-//   text-align: center;
-//   border-bottom: 1px solid #e5e5e5;
-//
-//   &:hover span + span {
-//     top: 80%;
-//   }
-//
-//   ${props => props.type === 'social' && css`
-//     border-bottom: none;
-//     padding: 1rem 0;
-//
-//     & span{
-//       transition: .3s;
-//       display: inline-block;
-//     }
-//     &:hover span {
-//       transform: rotate(360deg);
-//     }
-//   `}
-// `
-//
-// const HiddenSpan = styled.span `
-//   position: absolute;
-//   transition: .3s;
-//   width: 100%;
-//   top: 100%;
-//   left: 50%;
-//   transform: translateX(-50%);
-// `

@@ -11,11 +11,14 @@ type FlexPropsType = {
     background?: string
     wrap?: string
     maxWidth?: string
+    width?: string
+    height? : string
+    margin?: string
 }
 export const Flex = styled.div<FlexPropsType>`
   max-width: ${props => props.maxWidth};
-  width: 100%;
-  height: 100%;
+  width: ${props => props.width || 'auto'};
+  height: ${props => props.height || 'auto'};
   display: ${props => props.display || 'flex'};
   flex-wrap: ${props => props.wrap || 'nowrap'};
   flex-direction: ${props => props.direction || 'row'};
@@ -25,5 +28,5 @@ export const Flex = styled.div<FlexPropsType>`
   flex: ${props => props.flex};
   padding: ${props => props.padding};
   background: ${props => props.background};
-  margin: 0 auto;
+  margin: ${props => props.margin || '0 auto'};
 `

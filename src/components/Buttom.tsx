@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import * as React from 'react';
+import {theme} from '../styles/Theme';
 
 type ButtonPropsType = {
     primaryValue: string
     secondaryValue?: string
     type?: any
     background?: string
+    margin?: string
 }
 export const Button = (props: ButtonPropsType) => {
     return (
-        <StyledButton as={props.type} background={props.background}>
+        <StyledButton as={props.type} background={props.background} margin={props.margin}>
             <span>{props.primaryValue}</span>
             <span>{props.secondaryValue}</span>
         </StyledButton>
@@ -18,17 +20,20 @@ export const Button = (props: ButtonPropsType) => {
 
 type StyledButtonPropsType = {
     background: string
+    margin?: string
 }
 
 const StyledButton = styled.button<StyledButtonPropsType> `
   color: #ffffff;
   line-height: 1;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.6rem;
   text-align: center;
   border-radius: 3rem;
-  background-color: ${props => props.background || 'rgb(252, 194, 85)'};
+  border: transparent;
+  background-color: ${props => props.background || theme.colors.orange};
   box-shadow: 0 8px 20px 0 rgba(255, 196, 85, 0.3);
+  margin: ${props => props.margin};
   
   display: inline-flex;
   align-items: center;
@@ -37,8 +42,8 @@ const StyledButton = styled.button<StyledButtonPropsType> `
   
   position: relative;
   overflow: hidden;
-  min-width: 200px;
-  height: 60px;
+  min-width: 20rem;
+  height: 6rem;
   
   // отступы для смежных кнопок
   & + & {
