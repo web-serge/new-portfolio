@@ -52,6 +52,8 @@ const WelcomeSection = styled.section`
   background-size: cover;
   transition: all 0.3s;
   animation: ${Moveup} 50s linear infinite;
+  
+  padding-left: 13rem;
 
   & svg {
     min-width: 30rem;

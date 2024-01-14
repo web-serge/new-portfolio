@@ -17,6 +17,11 @@ export const GlobalStyles = createGlobalStyle `
     width: 100%;
   }
   
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
   html {
     font-size: 10px;
   }

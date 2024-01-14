@@ -33,6 +33,7 @@ const StyledButton = styled.button<StyledButtonPropsType> `
   border: transparent;
   background-color: ${props => props.background || theme.colors.orange};
   box-shadow: 0 8px 20px 0 rgba(255, 196, 85, 0.3);
+  //box-shadow: ${props => `0 8px 20px 0 ${props.background}`};
   margin: ${props => props.margin};
   
   display: inline-flex;

@@ -8,10 +8,10 @@ export const theme = {
         info: '#0dcaf0',
         warning: '#ffc107',
         danger: '#dc3545',
-        blue: '#0d6efd',
+        link: '#0d6efd',
         indigo: '#6610f2',
         purple: '#6f42c1',
-        pink: '#ff517e',
+        pink: '#ff5353',
         red: '#dc3545',
         yellow: '#ffc107',
         green: '#198754',
@@ -24,7 +24,10 @@ export const theme = {
         orangeLight: '#ffc454',
         textFieldBg: 'rgba(199, 205, 211, 0.1)',
         background: '#f7f7f78f',
-        boxShadowForm: '#0000001a'
+        boxShadowForm: '#0000001a',
+        phone: '#ff754a',
+        location: 'tomato',
+        mail: 'yellowgreen'
     },
 
     size: {

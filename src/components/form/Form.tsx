@@ -8,24 +8,25 @@ import {Textarea} from './text-fields/Textarea';
 
 export const Form = () => {
     return (
-        <StyledForm as='form' action="#">
-            <Grid>
+        <StyledFormContainer>
+            <Grid as='form' action="#">
                 <Input placeholder='First name' required/>
                 <Input placeholder='Last name' required/>
                 <Input placeholder='Email Adress' type='email' required/>
                 <Input placeholder='Subject' required/>
+                <Textarea required />
+                <Button margin='5rem 0 0 0' primaryValue='Submit' secondaryValue='Submit' background={theme.colors.pink}/>
             </Grid>
-            <Textarea required/>
-            <Button margin='5rem 0 0 0' primaryValue='Submit' secondaryValue='Submit' background={theme.colors.pink}/>
-        </StyledForm>
+        </StyledFormContainer>
     )
 }
 
-const StyledForm = styled.form`
+const StyledFormContainer = styled.div`
   max-width: 77rem;
   padding: 5rem;
   width: 100%;
   background-color: ${theme.colors.white};
   box-shadow: 0 0 77px -4px ${theme.colors.boxShadowForm};
+  margin-bottom: 4rem;
 `
 

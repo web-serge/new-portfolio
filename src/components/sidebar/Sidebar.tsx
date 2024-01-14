@@ -11,7 +11,7 @@ export const Sidebar = () => {
             <img src={randomPhoto} alt='randomPhoto'/>
             <ul>
                 <li>
-                    <Icon type='navigation' iconTitle='address-card' title={'About'} color={'#ff5353'} size={2.5}/>
+                    <Icon type='navigation' iconTitle='address-card' title={'About'} color={theme.colors.pink} size={2.5}/>
                 </li>
                 <li>
                     <Icon type='navigation' iconTitle='briefcase' title={'Portfolio'} color={'#20cae5'} size={2.5}/>
@@ -20,7 +20,7 @@ export const Sidebar = () => {
                     <Icon type='navigation' iconTitle='quote-left' title={'Testimonial'} color={'#ffc455'} size={2.5}/>
                 </li>
                 <li>
-                    <Icon type='navigation' iconTitle='phone-volume' title={'Contact'} color={'#ff754a'} size={2.5}/>
+                    <Icon type='navigation' iconTitle='phone-volume' title={'Contact'} color={theme.colors.phone} size={2.5}/>
                 </li>
             </ul>
             <FollowUS>Follow Us</FollowUS>

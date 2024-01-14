@@ -14,11 +14,16 @@ export const Textarea = styled.textarea `
   background: #ff000000;
   border: 1px solid #c7cdd3;
   padding: .5rem;
+  grid-column: 1/3;
 
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
   &:focus,
   &:focus-visible {
     background-color: ${theme.colors.textFieldBg};
+  }
+
+  @media ${theme.media.mobile} {
+    grid-column: auto;
   }
 `

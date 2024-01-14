@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import {theme} from '../styles/Theme';
 
 type FlexPropsType = {
     display?: 'flex' | 'inline-flex'
     align?: 'center' | 'flex-start' | 'flex-end'
-    justify?: 'center' | 'space-between' | 'flex-start' | 'flex-end'
+    justify?: 'center' | 'space-between' | 'flex-start' | 'flex-end' | 'space-around'
     direction?: 'row' | 'column'
     gap?: string
     flex?: string
@@ -29,4 +30,8 @@ export const Flex = styled.div<FlexPropsType>`
   padding: ${props => props.padding};
   background: ${props => props.background};
   margin: ${props => props.margin || '0 auto'};
+  
+  @media ${theme.media.mobile} {
+    flex-wrap: wrap;
+  }
 `

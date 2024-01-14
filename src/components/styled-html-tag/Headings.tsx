@@ -8,6 +8,7 @@ export type HeadingsPropsType = {
     margin?: string
     transform?: 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana' | 'none'
     heading?: 'h1' | 'h2' | 'h3'
+    textAlign?: string
 }
 export const Heading = styled.h3<HeadingsPropsType> `
   position: relative;
@@ -16,6 +17,7 @@ export const Heading = styled.h3<HeadingsPropsType> `
   z-index: 0;
   font-weight: ${theme.weight.semiBold};
   margin: ${props => props.margin || '.5rem 0'};
+  color: ${props => props.color || 'inherit'};
 
 ${props => props.heading === 'h1' && css `
   color: ${theme.colors.grayDark};
@@ -37,17 +39,15 @@ ${props => props.heading === 'h1' && css `
 `}
 
 ${props => props.heading === 'h2' && css `
-
-  text-transform: capitalize;
   line-height: 1.3;
   font-size: ${theme.size.h2}rem;
   font-weight: ${theme.weight.semiBold};
-  color: ${theme.colors.cyan};
 `}
   
   ${props => props.heading === 'h3' && css `
     font-weight: ${theme.weight.semiBold};
     font-size: ${theme.size.h3}rem;
+    white-space: nowrap;
     
     &::before {
       content: "";
