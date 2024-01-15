@@ -15,13 +15,14 @@ type IconPropsType = {
     size?: number
     pref?: 'fas' | 'fab'
     type?: 'social' | 'navigation'
+    href?: string
 }
 export const Icon = (props: IconPropsType) => {
     const iconLookup: IconLookup = {prefix: props.pref || 'fas', iconName: props.iconTitle}
     const iconDefinition: IconDefinition = findIconDefinition(iconLookup)
 
     return (
-        <Link type={props.type} style={{color: `${props.color}`}} background={props.color}>
+        <Link href={props.href} type={props.type} style={{color: `${props.color}`}} background={props.color}>
             <span style={{fontSize: `${props.size}rem`}}>
                 <FontAwesomeIcon icon={iconDefinition}/>
             </span>

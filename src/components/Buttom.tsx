@@ -46,11 +46,6 @@ const StyledButton = styled.button<StyledButtonPropsType> `
   min-width: 20rem;
   height: 6rem;
   
-  // отступы для смежных кнопок
-  & + & {
-    margin-left: 2rem;
-  }
-  
   // стилилизуем оба span
   & span {
     transform: translate(-50%, -50%);

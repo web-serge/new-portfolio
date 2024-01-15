@@ -2,38 +2,36 @@ import {theme} from '../../../styles/Theme';
 import styled, {css} from 'styled-components';
 import {useState} from 'react';
 
+export type TabsType = 'all' | 'javascript' | 'react' | 'landing'
+
 type StateType = {
     title: string
-    active: boolean
+    tabsValue: TabsType
 }
-export const TabMenu = () => {
-    let [state, setState] = useState<Array<StateType>>([
-        {title: 'ALL', active: true},
-        {title: 'JavaScript', active: false},
-        {title: 'React', active: false},
-        {title: 'TypeScript', active: false},
-        {title: 'HTML/CSS', active: false},
-    ])
+
+type TabMenuPropsType = {
+    changeTab: (value: TabsType) => void
+    tab: string
+}
+export const TabMenu = (props: TabMenuPropsType) => {
+    let tabsList: Array<StateType> = [
+        {title: 'ALL', tabsValue: 'all'},
+        {title: 'JavaScript', tabsValue: 'javascript'},
+        {title: 'React', tabsValue: 'react'},
+        {title: 'Landing Page', tabsValue: 'landing'},
+    ]
 
     return (
         <>
-            {state.map(item => {
+            {tabsList.map(tab => {
                 return (
-                    <li><Link active={item.active}
-                              href="#"
-                              id={item.title}
-                              key={item.title}
-
-                              // change active link
-                              onClick={ (e) => {
+                    <li><Link href="#" id={tab.title} key={tab.title}
+                              active={props.tab === tab.tabsValue}
+                              onClick={(e) => {
                                   e.preventDefault()
-                                  let copy = [...state];
-                                  copy.map(el => el.title !== item.title ? el.active = false : el.active = true);
-                                  console.log(copy)
-                                  setState(copy);
+                                  props.changeTab(tab.tabsValue)
                               }}
-
-                    >{item.title}</Link></li>
+                    >{tab.title}</Link></li>
                 )
             })}
         </>
@@ -45,12 +43,13 @@ type LinkPropsType = {
     active?: boolean
 }
 
-const Link = styled.a<LinkPropsType> `
+const Link = styled.a<LinkPropsType>`
   color: ${theme.colors.link};
   font-weight: ${theme.weight.semiBold};
   text-transform: uppercase;
   position: relative;
   transition: all .3s;
+  white-space: nowrap;
 
   &::before {
     content: '';
@@ -63,17 +62,16 @@ const Link = styled.a<LinkPropsType> `
     transform: translateX(-50%);
     transition: .3s;
   }
-  
-  ${props => props.active && css `
+
+  ${props => props.active && css`
     color: ${theme.colors.pink};
-    
+
     &::before {
       width: 100%;
     }
   `}
-  
   &:hover {
-  color: ${theme.colors.pink};
+    color: ${theme.colors.pink};
     opacity: .8;
   }
 `

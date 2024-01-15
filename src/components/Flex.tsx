@@ -33,5 +33,7 @@ export const Flex = styled.div<FlexPropsType>`
   
   @media ${theme.media.mobile} {
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 `

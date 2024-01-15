@@ -24,12 +24,13 @@ export const GlobalStyles = createGlobalStyle `
   
   html {
     font-size: 10px;
+    scroll-behavior: smooth;
   }
   
   body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
-    min-width: 32rem;
+    min-width: 20rem;
     position: relative;
     font-weight: 400;
     line-height: 1.5;

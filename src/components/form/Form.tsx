@@ -28,5 +28,9 @@ const StyledFormContainer = styled.div`
   background-color: ${theme.colors.white};
   box-shadow: 0 0 77px -4px ${theme.colors.boxShadowForm};
   margin-bottom: 4rem;
+
+  @media ${theme.media.mobile} {
+    padding: 2rem .5rem;
+  }
 `
 

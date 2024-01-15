@@ -34,7 +34,8 @@ export const theme = {
         h1: 2.8,
         h2: 3.3,
         h3: 2.2,
-        sectionPadding: 5
+        sectionPadding: 8,
+        sectionMobilePadding: 3
     },
 
     weight: {

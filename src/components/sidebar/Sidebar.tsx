@@ -8,19 +8,19 @@ import {Button} from '../Buttom';
 export const Sidebar = () => {
     return (
         <Aside>
-            <img src={randomPhoto} alt='randomPhoto'/>
+            <a href="#welcome"><img src={randomPhoto} alt='randomPhoto'/></a>
             <ul>
                 <li>
-                    <Icon type='navigation' iconTitle='address-card' title={'About'} color={theme.colors.pink} size={2.5}/>
+                    <Icon href='#about' type='navigation' iconTitle='address-card' title={'About'} color={theme.colors.pink} size={2.5}/>
                 </li>
                 <li>
-                    <Icon type='navigation' iconTitle='briefcase' title={'Portfolio'} color={'#20cae5'} size={2.5}/>
+                    <Icon href='#portfolio' type='navigation' iconTitle='briefcase' title={'Portfolio'} color={'#20cae5'} size={2.5}/>
                 </li>
                 <li>
-                    <Icon type='navigation' iconTitle='quote-left' title={'Testimonial'} color={'#ffc455'} size={2.5}/>
+                    <Icon href='#' type='navigation' iconTitle='quote-left' title={'Testimonial'} color={'#ffc455'} size={2.5}/>
                 </li>
                 <li>
-                    <Icon type='navigation' iconTitle='phone-volume' title={'Contact'} color={theme.colors.phone} size={2.5}/>
+                    <Icon href='#contact' type='navigation' iconTitle='phone-volume' title={'Contact'} color={theme.colors.phone} size={2.5}/>
                 </li>
             </ul>
             <FollowUS>Follow Us</FollowUS>
@@ -80,6 +80,11 @@ const Aside = styled.aside`
     justify-content: center;
     align-items: center;
     width: 100%;
+  }
+
+  @media ${theme.media.mobile} {
+    width: 0;
+    padding: 0;
   }
 `
 

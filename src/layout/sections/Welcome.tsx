@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import banner_bg from '../../assets/images/banner_bg.png'
 import {Moveup} from '../../styles/animations/animations';
-// import randomPhoto from '../../assets/images/photo_2024-01-12_14-15-27.jpg'
 import randomPhoto from '../../assets/images/random-photo.jpg'
 import {Mover} from '../../styles/animations/animations';
 import {Button} from '../../components/Buttom';
@@ -14,7 +13,7 @@ import {Heading} from '../../components/styled-html-tag/Headings';
 
 export const Welcome = () => {
     return (
-        <WelcomeSection>
+        <WelcomeSection id='welcome'>
             <Flex align='center' justify='space-between' maxWidth='75vw'>
                 <Flex direction='column' align='flex-start' margin='0'>
                     <CustomSpan>HELLO!
@@ -24,7 +23,7 @@ export const Welcome = () => {
                         I'm Serge
                     </Span>
                     <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Freelance Front End Developer</Heading>
-                    <Flex justify='space-between'>
+                    <Flex justify='space-between' gap='1rem'>
                         <Button type={'a'} primaryValue='Download CV' secondaryValue='Download'/>
                         <Button type={'a'} primaryValue='Send Message' secondaryValue='Send'
                                 background={theme.colors.pink}/>
@@ -56,8 +55,26 @@ const WelcomeSection = styled.section`
   padding-left: 13rem;
 
   & svg {
-    min-width: 30rem;
+    min-width: 28rem;
     animation: ${Mover} 5s linear infinite;
+
+    @media ${theme.media.mobile} {
+      max-width: 31rem;
+      max-height: 31rem;
+      overflow: hidden;
+    }
+    
+  }
+
+  @media ${theme.media.mobile} {
+    padding: 0 .5rem;
+    height: max-content;
+    
+    & > div {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `
 
