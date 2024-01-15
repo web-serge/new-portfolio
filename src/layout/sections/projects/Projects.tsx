@@ -8,6 +8,8 @@ import todoImage from '../../../assets/images/to-do-list-apps.png'
 import socialImage from '../../../assets/images/social-network.jpg'
 import styled from 'styled-components';
 import {useState} from 'react';
+import {Button} from '../../../components/Buttom';
+import {Icon} from '../../../components/Icon';
 
 type ProjectPropsType = {
     title?: string
@@ -66,9 +68,9 @@ const Project = (props: ProjectPropsType) => {
     return (
         <ProjectItem>
             <img src={props.cover} alt={props.title}/>
-            <Flex align='center' justify='space-around' gap='1rem'>
-                <a href={props.demoUrl} target='_blank'>Demo <span>&#8594;</span></a>
-                <a href={props.codeUrl} target='_blank'>Code <span>&#8594;</span></a>
+            <Flex align='center' justify='center' direction='column' gap='1rem'>
+                <Button type='a' primaryValue='Demo' secondaryValue='View Demo &#8594;' background={theme.colors.pink} href={props.demoUrl}/>
+                <Button type='a' primaryValue='Code' secondaryValue='View Code &#8594;' background={theme.colors.orangeLight} href={props.demoUrl}/>
             </Flex>
         </ProjectItem>
     )
@@ -107,7 +109,7 @@ const ProjectItem = styled.div<ProjectItemPropsType> `
     & a {
       opacity: 0;
       transition: .3s;
-      color: ${theme.colors.dark};
+      color: ${theme.colors.white};
       font-weight: ${theme.weight.bold};
       font-size: 2rem;
     }

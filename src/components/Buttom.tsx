@@ -8,10 +8,11 @@ type ButtonPropsType = {
     type?: any
     background?: string
     margin?: string
+    href?: string
 }
 export const Button = (props: ButtonPropsType) => {
     return (
-        <StyledButton as={props.type} background={props.background} margin={props.margin}>
+        <StyledButton as={props.type} background={props.background} margin={props.margin} href={props.href}>
             <span>{props.primaryValue}</span>
             <span>{props.secondaryValue}</span>
         </StyledButton>
