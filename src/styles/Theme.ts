@@ -1,6 +1,8 @@
 export const theme = {
     colors: {
-        primary: '#0d6efd',
+        // primary: '#0d6efd',
+        // secondary: '#6c757d',
+        primary: '#ffc454',
         secondary: '#6c757d',
         light: '#f8f9fa',
         dark: '#212529',
@@ -45,6 +47,6 @@ export const theme = {
     },
 
     media: {
-        mobile: 'screen and (max-width: 767px)'
+        mobile: 'screen and (max-width: 875px)'
     }
 }

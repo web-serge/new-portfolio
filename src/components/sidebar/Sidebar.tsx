@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import {theme} from '../../styles/Theme';
 import React from 'react';
 import {Icon} from '../Icon';
-import randomPhoto from '../../assets/images/random-photo.jpg'
-import {Button} from '../Buttom';
+import photo from '../../assets/images/photo.jpg'
 
 export const Sidebar = () => {
     return (
         <Aside>
-            <a href="#welcome"><img src={randomPhoto} alt='randomPhoto'/></a>
+            <a href="#welcome"><img src={photo} alt='randomPhoto'/></a>
             <ul>
                 <li>
                     <Icon href='#about' type='navigation' iconTitle='address-card' title={'About'} color={theme.colors.pink} size={2.5}/>
@@ -17,7 +16,12 @@ export const Sidebar = () => {
                     <Icon href='#portfolio' type='navigation' iconTitle='briefcase' title={'Portfolio'} color={'#20cae5'} size={2.5}/>
                 </li>
                 <li>
-                    <Icon href='#' type='navigation' iconTitle='quote-left' title={'Testimonial'} color={'#ffc455'} size={2.5}/>
+                    <Icon disabled={true} href='#'
+                          type='navigation'
+                          iconTitle='quote-left'
+                          title={'Testimonial'}
+                          color={'grey'}
+                          size={2.5}/>
                 </li>
                 <li>
                     <Icon href='#contact' type='navigation' iconTitle='phone-volume' title={'Contact'} color={theme.colors.phone} size={2.5}/>
@@ -32,7 +36,7 @@ export const Sidebar = () => {
                     <Icon type='social' pref={'fab'} iconTitle='linkedin-in' color={'#0077b5'} size={2}/>
                 </li>
                 <li>
-                    <Icon type='social' pref={'fab'} iconTitle='whatsapp' color={'#25d366'} size={2}/>
+                    <Icon href='https://wa.me/+79996243090' type='social' pref={'fab'} iconTitle='whatsapp' color={'#25d366'} size={2}/>
                 </li>
                 <li>
                     <Icon type='social' pref={'fab'} iconTitle='twitter' color={'#55acee'} size={2}/>
@@ -51,7 +55,7 @@ const Aside = styled.aside`
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
   left: 0;
   width: 12rem;
-  padding: 1rem;
+  padding: 10px;
   height: 100%;
   z-index: 99999;
   overflow-y: auto;
@@ -62,17 +66,13 @@ const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 40px;
 
   & img {
     width: 9rem;
     border-radius: 50%;
-    transform: scale(-1, 1);
     object-fit: cover;
-  }
-  
-  & > ul {
-    width: 100%;
+    transform: scale(-1,1);
   }
   
   & > ul > li {

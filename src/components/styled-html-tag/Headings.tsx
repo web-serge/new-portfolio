@@ -21,7 +21,7 @@ export const Heading = styled.h3<HeadingsPropsType> `
 
 ${props => props.heading === 'h1' && css `
   color: ${theme.colors.grayDark};
-  font-size: ${theme.size.h1}rem;
+  font-size: clamp(1.4rem, 5vw, ${theme.size.h1}rem);
   position: relative;
   padding-left: 1.2rem;
   font-weight: ${theme.weight.semiBold};
@@ -40,7 +40,7 @@ ${props => props.heading === 'h1' && css `
 
 ${props => props.heading === 'h2' && css `
   line-height: 1.3;
-  font-size: ${theme.size.h2}rem;
+  font-size: clamp(1.65rem, 5vw, ${theme.size.h2}rem);
   font-weight: ${theme.weight.semiBold};
 `}
   

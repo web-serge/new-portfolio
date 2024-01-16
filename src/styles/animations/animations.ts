@@ -23,3 +23,14 @@ export const Moveup = keyframes `
     background-position: left 0 top 0;
   }
 `
+
+export const ExitFromRight = keyframes `
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }  
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`

@@ -6,11 +6,11 @@ import {Heading} from '../../components/styled-html-tag/Headings';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {icon} from '@fortawesome/fontawesome-svg-core';
 import {theme} from '../../styles/Theme';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 type SkillsPropsType = {
     name: string
-    progress: number
+    progress?: number
     image: IconName
 }
 export const Skills = () => {
@@ -25,23 +25,16 @@ export const Skills = () => {
     return (
         <Section bg={theme.colors.orange}>
             <Wrapper>
-                <Flex as='ul' wrap='wrap'>
+                <Flex as='ul' wrap='wrap' gap='1.5rem' align='center' justify='center'>
                     {skills.map(el => {
                         return (
-                            <Flex as='li' direction='column' align='center' key={el.name}>
-
-                                    <FontAwesomeIcon  fontSize={'6rem'} color={theme.colors.pink} icon={icon({
-                                        iconName: el.image,
-                                        prefix: 'fab'})} />
-                                    <span color={theme.colors.secondary}>{el.progress}%</span>
-                                    <Heading as='h3' heading='h3' color={theme.colors.secondary}>{el.name}</Heading>
-                                    {/*<BorderProgress>*/}
-
-                                    {/*    <svg width='120' height='120'>*/}
-                                    {/*        <circle stroke='#fff' strokeWidth='4' cx='60' cy='60' r='52' fill='transparent'/>*/}
-                                    {/*    </svg>*/}
-                                    {/*</BorderProgress>*/}
-
+                            <Flex key={el.name} as='li' direction='column' align='center' flex='1'>
+                                <FontAwesomeIcon fontSize={'6rem'} icon={icon({
+                                    iconName: el.image,
+                                    prefix: 'fab'
+                                })}/>
+                                {/*<span style={{color: `${theme.colors.white}`}}>{el.progress}%</span>*/}
+                                <Heading as='h3' heading='h3'>{el.name}</Heading>
                             </Flex>
                         )
                     })}
@@ -50,14 +43,3 @@ export const Skills = () => {
         </Section>
     )
 }
-
-const BorderProgress = styled.div `
-
-  text-align: center;
-    & svg {
-      
-      & circle {
-        stroke-dasharray: 50 10;
-      }
-    }
-`

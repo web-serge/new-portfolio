@@ -1,8 +1,7 @@
 import {Wrapper} from '../../components/Wrapper';
 import {Flex} from '../../components/Flex';
 import {Button} from '../../components/Buttom';
-// import randomPhoto from '../../assets/images/photo_2024-01-12_14-15-27.jpg'
-import randomPhoto from '../../assets/images/random-photo.jpg'
+import photo from '../../assets/images/photo.jpg'
 import styled from 'styled-components';
 import {Heading} from '../../components/styled-html-tag/Headings';
 import {Paragraph} from '../../components/styled-html-tag/Paragraph';
@@ -16,7 +15,7 @@ export const About = () => {
             <Wrapper>
                 <Flex justify='space-between' align='center' gap='2rem' wrap='wrap'>
                     <ImageWrapper>
-                        <img src={randomPhoto} alt="random photo"/>
+                        <img src={photo} alt="random photo"/>
                     </ImageWrapper>
                     <Flex direction='column' maxWidth='55rem'>
                         <Heading as={'h3'} heading='h3' id='about'>About Me</Heading>

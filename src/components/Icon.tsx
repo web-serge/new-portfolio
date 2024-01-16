@@ -16,13 +16,18 @@ type IconPropsType = {
     pref?: 'fas' | 'fab'
     type?: 'social' | 'navigation'
     href?: string
+    disabled?: boolean
 }
 export const Icon = (props: IconPropsType) => {
     const iconLookup: IconLookup = {prefix: props.pref || 'fas', iconName: props.iconTitle}
     const iconDefinition: IconDefinition = findIconDefinition(iconLookup)
 
     return (
-        <Link href={props.href} type={props.type} style={{color: `${props.color}`}} background={props.color}>
+        <Link href={props.href}
+              type={props.type}
+              style={{color: `${props.color}`}}
+              background={props.color}
+              disabled={props.disabled}>
             <span style={{fontSize: `${props.size}rem`}}>
                 <FontAwesomeIcon icon={iconDefinition}/>
             </span>
@@ -40,12 +45,12 @@ export const Icon = (props: IconPropsType) => {
 type LinkPropsType = {
     type?: 'social' | 'navigation'
     background: string
+    disabled?: boolean
 }
 
 
 const Link = styled.a<LinkPropsType>`
   position: relative;
-  display: block;
   overflow: hidden;
   cursor: pointer;
   line-height: 1;
@@ -61,11 +66,11 @@ const Link = styled.a<LinkPropsType>`
   }
 
   ${props => props.type === 'navigation' && css`
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     border-bottom: 1px solid #e5e5e5;
 
     & > span:nth-child(1) {
-      transition: .5s;
+      transition: .2s;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -76,10 +81,7 @@ const Link = styled.a<LinkPropsType>`
     // hovers effects
 
     &:hover > span:nth-child(1) {
-      transform: translate(0, -10rem);
-    }
-
-    & > span + span {
+      transform: translate(-50%, -5rem);
     }
 
     &:hover > span {
@@ -107,13 +109,18 @@ const Link = styled.a<LinkPropsType>`
       transform: rotate(360deg);
     }
   `}
+
+  ${props => props.disabled && css`
+    cursor: not-allowed;
+    color: grey;
+  `}
 `
 
 const HiddenSpan = styled.span`
   position: absolute;
-  transition: .5s;
+  transition: .2s;
   width: 100%;
-  top: 100%;
+  top: 3rem;
   left: 50%;
   transform: translate(-50%, 50%);
   pointer-events: none;

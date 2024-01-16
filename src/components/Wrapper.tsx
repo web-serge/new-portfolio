@@ -7,8 +7,9 @@ export const Wrapper = styled.div `
   height: 100%;
   margin: 0 auto;
   padding-left: 16rem;
+  overflow: hidden;
 
   @media ${theme.media.mobile} {
-    padding: 0 .1rem;
+    padding: 0 .5rem;
   }
 `

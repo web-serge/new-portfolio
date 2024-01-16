@@ -9,10 +9,13 @@ type ButtonPropsType = {
     background?: string
     margin?: string
     href?: string
+    target?: string
+    onClick?: () => void
+    download?: boolean
 }
 export const Button = (props: ButtonPropsType) => {
     return (
-        <StyledButton as={props.type} background={props.background} margin={props.margin} href={props.href}>
+        <StyledButton as={props.type} background={props.background} margin={props.margin} href={props.href} target={props.target || '_blank'} onClick={props.onClick} download={props.download}>
             <span>{props.primaryValue}</span>
             <span>{props.secondaryValue}</span>
         </StyledButton>

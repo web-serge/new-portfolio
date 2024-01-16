@@ -25,12 +25,14 @@ export const TabMenu = (props: TabMenuPropsType) => {
         <>
             {tabsList.map(tab => {
                 return (
-                    <li><Link href="#" id={tab.title} key={tab.title}
+                    <li key={tab.title}><Link href="#" id={tab.title} key={tab.title}
                               active={props.tab === tab.tabsValue}
                               onClick={(e) => {
                                   e.preventDefault()
                                   props.changeTab(tab.tabsValue)
                               }}
+
+
                     >{tab.title}</Link></li>
                 )
             })}
@@ -44,7 +46,7 @@ type LinkPropsType = {
 }
 
 const Link = styled.a<LinkPropsType>`
-  color: ${theme.colors.link};
+  color: #556d91;
   font-weight: ${theme.weight.semiBold};
   text-transform: uppercase;
   position: relative;

@@ -10,7 +10,9 @@ export const Grid = styled.div`
   justify-items: start;
   
   @media ${theme.media.mobile} {
-    grid-template-columns: repeat(auto-fit, minmax(29rem, auto));
+    //grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+    grid-template-columns: 1fr;
+    justify-items: normal;
+    margin-bottom: 0;
   }
-  //grid-template-columns: repeat(auto-fit minmax(30rem 1fr));
 `

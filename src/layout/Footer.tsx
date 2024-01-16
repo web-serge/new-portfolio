@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import {theme} from '../styles/Theme';
 
-export const Footer = () =>  <StyledFooter><small>Copyright © 2021 Portfolio. All Rights Reserved</small></StyledFooter>
+export const Footer = () =>  {
+    const date = new Date
+    return <StyledFooter><small>Copyright © {date.getFullYear()} Portfolio. All Rights Reserved</small></StyledFooter>
+}
 
 const StyledFooter = styled.footer `
   background-color: ${theme.colors.orangeLight};

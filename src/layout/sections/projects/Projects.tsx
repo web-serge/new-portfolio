@@ -6,13 +6,14 @@ import {theme} from '../../../styles/Theme';
 import {TabMenu, TabsType} from './TabMenu';
 import todoImage from '../../../assets/images/to-do-list-apps.png'
 import socialImage from '../../../assets/images/social-network.jpg'
+import orange from '../../../assets/images/orange.jpg'
 import styled from 'styled-components';
 import {useState} from 'react';
 import {Button} from '../../../components/Buttom';
-import {Icon} from '../../../components/Icon';
+import {ExitFromRight} from '../../../styles/animations/animations';
 
 type ProjectPropsType = {
-    title?: string
+    title: string
     cover: string
     demoUrl: string
     codeUrl: string
@@ -26,7 +27,7 @@ export const Projects = () => {
         {title: 'Todolist',
             cover: todoImage, demoUrl: 'https://web-serge.github.io/todolist-vanilla-js/',
             codeUrl: 'https://github.com/web-serge/todolist-vanilla-js', filter: 'javascript'},
-        {title: 'Audio Player', cover: 'https://149842033.v2.pressablecdn.com/wp-content/uploads/2019/01/Audio-Player-By-Matt-Stvartak-1000x750.jpg',
+        {title: 'Audio Player', cover: orange,
             demoUrl: 'https://web-serge.github.io/audio-player-js/',
             codeUrl: 'https://github.com/web-serge/audio-player-js', filter: 'landing'},
         {title: 'Social Network', cover: socialImage, demoUrl: 'https://web-serge.github.io/audio-player-js/',
@@ -54,7 +55,10 @@ export const Projects = () => {
                     </Flex>
                     <Flex gap='2rem' wrap='wrap'>
                         {copyProjects.map(item => {
-                            return <Project cover={item.cover} codeUrl={item.codeUrl} demoUrl={item.demoUrl}/>
+                            return <Flex key={item.title} direction='column' align='center'>
+                                <Heading as='h3' heading='h3'>{item.title}</Heading>
+                                <Project cover={item.cover} codeUrl={item.codeUrl} demoUrl={item.demoUrl} title={item.title}/>
+                            </Flex>
                         })}
                     </Flex>
                 </Flex>
@@ -70,7 +74,7 @@ const Project = (props: ProjectPropsType) => {
             <img src={props.cover} alt={props.title}/>
             <Flex align='center' justify='center' direction='column' gap='1rem'>
                 <Button type='a' primaryValue='Demo' secondaryValue='View Demo &#8594;' background={theme.colors.pink} href={props.demoUrl}/>
-                <Button type='a' primaryValue='Code' secondaryValue='View Code &#8594;' background={theme.colors.orangeLight} href={props.demoUrl}/>
+                <Button type='a' primaryValue='Code' secondaryValue='View Code &#8594;' background={theme.colors.orangeLight} href={props.codeUrl}/>
             </Flex>
         </ProjectItem>
     )
@@ -89,25 +93,28 @@ const ProjectItem = styled.div<ProjectItemPropsType> `
   overflow: hidden;
   border-radius: 2rem;
 
+  animation: ${ExitFromRight} .2s linear;
+
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: .2s;
   }
 
   & div {
     position: absolute;
+    opacity: 0;
     bottom: 0;
     left: 0;
     right: 0;
     height: 0;
     transition: .3s;
-    backdrop-filter:blur(3px);
+    backdrop-filter:blur(5px);
     padding: .5rem;
     
     & a {
-      opacity: 0;
       transition: .3s;
       color: ${theme.colors.white};
       font-weight: ${theme.weight.bold};
@@ -119,9 +126,6 @@ const ProjectItem = styled.div<ProjectItemPropsType> `
     height: 100%;
     width: 100%;
     z-index: 11;
-    
-    & a {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 `

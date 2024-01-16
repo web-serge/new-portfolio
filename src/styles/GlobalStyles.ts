@@ -25,6 +25,11 @@ export const GlobalStyles = createGlobalStyle `
   html {
     font-size: 10px;
     scroll-behavior: smooth;
+    
+    //media for retina
+    @media screen and (min-width: 1900px) {
+      font-size: calc(100vw / 2000 * 10);
+    }
   }
   
   body {
@@ -35,6 +40,10 @@ export const GlobalStyles = createGlobalStyle `
     font-weight: 400;
     line-height: 1.5;
     color: ${theme.colors.dark};
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
   
   section {

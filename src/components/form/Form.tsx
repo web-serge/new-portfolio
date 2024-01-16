@@ -15,7 +15,11 @@ export const Form = () => {
                 <Input placeholder='Email Adress' type='email' required/>
                 <Input placeholder='Subject' required/>
                 <Textarea required />
-                <Button margin='5rem 0 0 0' primaryValue='Submit' secondaryValue='Submit' background={theme.colors.pink}/>
+                <Button margin='0' primaryValue='Submit' secondaryValue='Submit &#8594;' background={theme.colors.pink}
+                    onClick={() => {
+
+                    }}
+                />
             </Grid>
         </StyledFormContainer>
     )
@@ -29,8 +33,13 @@ const StyledFormContainer = styled.div`
   box-shadow: 0 0 77px -4px ${theme.colors.boxShadowForm};
   margin-bottom: 4rem;
 
+  & form input:valid,
+  & form textarea:valid{
+    background: rgba(51, 255, 20, 0.11);
+  }
+
   @media ${theme.media.mobile} {
-    padding: 2rem .5rem;
+    padding: 2rem 1rem;
   }
 `
 

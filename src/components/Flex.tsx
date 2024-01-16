@@ -5,7 +5,7 @@ type FlexPropsType = {
     display?: 'flex' | 'inline-flex'
     align?: 'center' | 'flex-start' | 'flex-end'
     justify?: 'center' | 'space-between' | 'flex-start' | 'flex-end' | 'space-around'
-    direction?: 'row' | 'column'
+    direction?: 'row' | 'column' | 'column-reverse'
     gap?: string
     flex?: string
     padding?: string
@@ -35,5 +35,6 @@ export const Flex = styled.div<FlexPropsType>`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import banner_bg from '../../assets/images/banner_bg.png'
 import {Moveup} from '../../styles/animations/animations';
-import randomPhoto from '../../assets/images/random-photo.jpg'
+import photo from '../../assets/images/photo.jpg'
 import {Mover} from '../../styles/animations/animations';
 import {Button} from '../../components/Buttom';
 import {Flex} from '../../components/Flex';
@@ -14,17 +14,17 @@ import {Heading} from '../../components/styled-html-tag/Headings';
 export const Welcome = () => {
     return (
         <WelcomeSection id='welcome'>
-            <Flex align='center' justify='space-between' maxWidth='75vw'>
+            <Flex align='center' justify='space-between' maxWidth='75vw' height='100%'>
                 <Flex direction='column' align='flex-start' margin='0'>
                     <CustomSpan>HELLO!
                         <span> STRANGER!</span>
                     </CustomSpan>
-                    <Span weight={700} size='9.2rem' color={theme.colors.cyan} margin='0 0 0 -.9rem'>
+                    <Span weight={700} size='clamp(4.5rem, 10vw, 9.2rem)' color={theme.colors.cyan} margin='0 0 0 -.9rem'>
                         I'm Serge
                     </Span>
                     <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Freelance Front End Developer</Heading>
                     <Flex justify='space-between' gap='1rem'>
-                        <Button type={'a'} primaryValue='Download CV' secondaryValue='Download'/>
+                        <Button type={'a'} primaryValue='Download CV' secondaryValue='Download' download href=''/>
                         <Button type={'a'} primaryValue='Send Message' secondaryValue='Send'
                                 background={theme.colors.pink}/>
                     </Flex>
@@ -35,7 +35,7 @@ export const Welcome = () => {
                           fill="url(#bg_img)"/>
 
                     <pattern id="bg_img" patternUnits="userSpaceOnUse" width="968px" height="945px">
-                        <image xlinkHref={randomPhoto} width="968px" height="945px" x="0" y="0"/>
+                        <image xlinkHref={photo} width="968px" height="945px" x="0" y="0"/>
                     </pattern>
 
                 </svg>
@@ -55,13 +55,15 @@ const WelcomeSection = styled.section`
   padding-left: 13rem;
 
   & svg {
-    min-width: 28rem;
+    min-width: 20rem;
     animation: ${Mover} 5s linear infinite;
+    transform: translate(295px,115px);
 
     @media ${theme.media.mobile} {
       max-width: 31rem;
-      max-height: 31rem;
+      max-height: 29rem;
       overflow: hidden;
+      width: 100%;
     }
     
   }
@@ -85,7 +87,8 @@ const CustomSpan = styled.span`
   margin-bottom: 5px;
   position: relative;
   font-weight: 600;
-  font-size: 32px;
+  //font-size: 32px;
+  font-size: clamp(1.6rem, 5vw, 3.2rem);
   color: #fffffe;
 
   // bold line
@@ -94,7 +97,7 @@ const CustomSpan = styled.span`
     background: #ffc455;
     position: absolute;
     margin: 0 auto;
-    width: 244px;
+    width: 47%;
     z-index: -1;
     bottom: 0;
     left: 0;

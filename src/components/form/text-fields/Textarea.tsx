@@ -3,7 +3,7 @@ import {theme} from '../../../styles/Theme';
 
 export const Textarea = styled.textarea `
   width: 100%;
-  resize: vertical;
+  resize: none;
   min-height: 10rem;
   font-size: 1rem;
   line-height: 1.5;
