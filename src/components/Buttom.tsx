@@ -15,7 +15,13 @@ type ButtonPropsType = {
 }
 export const Button = (props: ButtonPropsType) => {
     return (
-        <StyledButton as={props.type} background={props.background} margin={props.margin} href={props.href} target={props.target || '_blank'} onClick={props.onClick} download={props.download}>
+        <StyledButton as={props.type}
+                      background={props.background}
+                      margin={props.margin}
+                      href={props.href}
+                      target={props.target || '_blank'}
+                      onClick={props.onClick}
+                      download={props.download}>
             <span>{props.primaryValue}</span>
             <span>{props.secondaryValue}</span>
         </StyledButton>
@@ -37,7 +43,6 @@ const StyledButton = styled.button<StyledButtonPropsType> `
   border: transparent;
   background-color: ${props => props.background || theme.colors.orange};
   box-shadow: 0 8px 20px 0 rgba(255, 196, 85, 0.3);
-  //box-shadow: ${props => `0 8px 20px 0 ${props.background}`};
   margin: ${props => props.margin};
   
   display: inline-flex;

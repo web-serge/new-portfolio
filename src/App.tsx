@@ -5,6 +5,7 @@ import {Footer} from './layout/Footer';
 import {Contacts} from './layout/sections/Contacts';
 import {Projects} from './layout/sections/projects/Projects';
 import {Skills} from './layout/sections/Skills';
+import {useState} from 'react';
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             <Sidebar/>
             <Welcome/>
             <About/>
-            <Skills />
+            <Skills/>
             <Projects/>
             <Contacts/>
             <Footer/>

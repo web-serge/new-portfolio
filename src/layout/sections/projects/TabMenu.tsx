@@ -1,6 +1,5 @@
 import {theme} from '../../../styles/Theme';
 import styled, {css} from 'styled-components';
-import {useState} from 'react';
 
 export type TabsType = 'all' | 'javascript' | 'react' | 'landing'
 
@@ -25,15 +24,15 @@ export const TabMenu = (props: TabMenuPropsType) => {
         <>
             {tabsList.map(tab => {
                 return (
-                    <li key={tab.title}><Link href="#" id={tab.title} key={tab.title}
+                    <li key={tab.title}>
+                        <Link href="#" id={tab.title} key={tab.title}
                               active={props.tab === tab.tabsValue}
                               onClick={(e) => {
                                   e.preventDefault()
                                   props.changeTab(tab.tabsValue)
-                              }}
-
-
-                    >{tab.title}</Link></li>
+                              }}>
+                            {tab.title}</Link>
+                    </li>
                 )
             })}
         </>

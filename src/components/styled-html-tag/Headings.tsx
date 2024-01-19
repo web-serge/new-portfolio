@@ -9,6 +9,7 @@ export type HeadingsPropsType = {
     transform?: 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana' | 'none'
     heading?: 'h1' | 'h2' | 'h3'
     textAlign?: string
+    space?: 'nowrap'
 }
 export const Heading = styled.h3<HeadingsPropsType> `
   position: relative;

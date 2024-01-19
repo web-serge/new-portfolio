@@ -9,12 +9,14 @@ import {theme} from '../../styles/Theme';
 import {Span} from '../../components/styled-html-tag/Span';
 import React from 'react';
 import {Heading} from '../../components/styled-html-tag/Headings';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
 
 
 export const Welcome = () => {
     return (
         <WelcomeSection id='welcome'>
-            <Flex align='center' justify='space-between' maxWidth='75vw' height='100%'>
+            <Flex align='center' justify='space-between' maxWidth='70vw' height='100%'>
                 <Flex direction='column' align='flex-start' margin='0'>
                     <CustomSpan>HELLO!
                         <span> STRANGER!</span>
@@ -23,9 +25,9 @@ export const Welcome = () => {
                         I'm Serge
                     </Span>
                     <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Freelance Front End Developer</Heading>
-                    <Flex justify='space-between' gap='1rem'>
-                        <Button type={'a'} primaryValue='Download CV' secondaryValue='Download' download href=''/>
-                        <Button type={'a'} primaryValue='Send Message' secondaryValue='Send'
+                    <Flex justify='space-between' gap='1rem' width={'100%'}>
+                        <Button type={'a'} primaryValue='Download CV' secondaryValue='Download &#128190;' download href='../../assets/images/orange.jpg'/>
+                        <Button type={'a'} primaryValue='Send Message' secondaryValue='Send &#9993;'
                                 background={theme.colors.pink}/>
                     </Flex>
                 </Flex>
@@ -51,13 +53,11 @@ const WelcomeSection = styled.section`
   background-size: cover;
   transition: all 0.3s;
   animation: ${Moveup} 50s linear infinite;
-  
   padding-left: 13rem;
-
+  
   & svg {
     min-width: 20rem;
     animation: ${Mover} 5s linear infinite;
-    transform: translate(295px,115px);
 
     @media ${theme.media.mobile} {
       max-width: 31rem;
@@ -87,7 +87,7 @@ const CustomSpan = styled.span`
   margin-bottom: 5px;
   position: relative;
   font-weight: 600;
-  //font-size: 32px;
+  white-space: nowrap;
   font-size: clamp(1.6rem, 5vw, 3.2rem);
   color: #fffffe;
 

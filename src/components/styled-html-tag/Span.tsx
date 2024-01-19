@@ -10,5 +10,6 @@ export const Span = styled.span<HeadingsPropsType> `
   font-weight: ${props => props.weight || 600};
   color: ${props => props.color || '#777777'};
   text-align: ${props => props.textAlign || 'left'};
-  margin: ${props => props.margin || '0'};
+  margin: ${props => props.margin || '0'}; 
+  white-space: ${props => props.space || 'wrap'};
 `

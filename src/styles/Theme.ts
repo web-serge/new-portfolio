@@ -1,8 +1,13 @@
 export const theme = {
     colors: {
-        // primary: '#0d6efd',
-        // secondary: '#6c757d',
-        primary: '#ffc454',
+        primary: '#ffc455',
+
+
+
+
+
+
+
         secondary: '#6c757d',
         light: '#f8f9fa',
         dark: '#212529',
@@ -28,8 +33,8 @@ export const theme = {
         background: '#f7f7f78f',
         boxShadowForm: '#0000001a',
         phone: '#ff754a',
-        location: 'tomato',
-        mail: 'yellowgreen'
+        location: '#ff6347',
+        mail: '#9acd32'
     },
 
     size: {
@@ -47,6 +52,7 @@ export const theme = {
     },
 
     media: {
-        mobile: 'screen and (max-width: 875px)'
+        mobile: 'screen and (max-width: 767px)',
+        tablet: 'screen and (min-width: 768px)'
     }
 }

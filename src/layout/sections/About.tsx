@@ -15,11 +15,11 @@ export const About = () => {
             <Wrapper>
                 <Flex justify='space-between' align='center' gap='2rem' wrap='wrap'>
                     <ImageWrapper>
-                        <img src={photo} alt="random photo"/>
+                        <img src={photo} alt="avata"/>
                     </ImageWrapper>
                     <Flex direction='column' maxWidth='55rem'>
                         <Heading as={'h3'} heading='h3' id='about'>About Me</Heading>
-                        <Heading as={'h2'} heading='h2' color={theme.colors.cyan} margin='1.5rem 0 1.7rem 0;'>I'm In The Design Industry With 10 Years Of Experience.</Heading>
+                        <Heading as={'h2'} heading='h2' color={theme.colors.cyan} margin='1.5rem 0 1.7rem 0;'>Lorem ipsum dolor sit amet.</Heading>
                         <Paragraph>There are many variations of passages of Lorem Ipsum , but the a have suffered are some form,
                             by injected humour, or the words which don't look even slightl. If you use a passage of, you
                             need to be sure there isn't anything look even slightly believable. If you are going to use
@@ -32,7 +32,7 @@ export const About = () => {
                         </Paragraph>
                         <Span color={theme.colors.cyan}>Sergey Churekov</Span>
                         <Span size='1.5rem' margin='0 0 2rem 0'>Frontend Developer</Span>
-                        <Flex width='100%' gap='1rem'>
+                        <Flex width='100%' gap='1rem' wrap={'wrap'}>
                             <Button type={'a'} primaryValue='Download CV' secondaryValue='Download'/>
                             <Button type={'a'} primaryValue='Hire Me' secondaryValue='Contact'
                                     background={theme.colors.pink}/>
@@ -48,6 +48,7 @@ const ImageWrapper = styled.div `
   max-width: 50rem;
   width: 100%;
   position: relative;
+  margin: 0 auto;
   
   &::before {
     content: '';
@@ -57,6 +58,8 @@ const ImageWrapper = styled.div `
     border: 5px solid #ff517e;
     top: 3rem;
     right: 3rem;
+    //top: 5%;
+    //right: 5%;
     z-index: -1;
     
   }
@@ -65,9 +68,4 @@ const ImageWrapper = styled.div `
     width: 100%;
     transform: scale(-1, 1);
   }
-`
-
-const ContentWrapper = styled.div `
-  max-width: 65rem;
-  width: 100%;
 `

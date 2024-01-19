@@ -8,13 +8,16 @@ export const GlobalStyles = createGlobalStyle `
     box-sizing: border-box;
   }
   
-  ul {
-    list-style: none;
+  img {
+    display: block;
+  }
+
+  section, ul{
     width: 100%;
   }
-  
-  li {
-    width: 100%;
+
+  ul {
+    list-style: none;
   }
   
   a {
@@ -26,27 +29,21 @@ export const GlobalStyles = createGlobalStyle `
     font-size: 10px;
     scroll-behavior: smooth;
     
-    //media for retina
-    @media screen and (min-width: 1900px) {
-      font-size: calc(100vw / 2000 * 10);
-    }
+    //media for big screens
+    //@media screen and (min-width: 1900px) {
+    //  font-size: calc(100vw / 2200 * 10);
+    //}
   }
   
   body {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
     min-width: 20rem;
-    position: relative;
-    font-weight: 400;
     line-height: 1.5;
     color: ${theme.colors.dark};
 
     @media (prefers-reduced-motion: reduce) {
       animation: none;
     }
-  }
-  
-  section {
-    width: 100%;
   }
 `

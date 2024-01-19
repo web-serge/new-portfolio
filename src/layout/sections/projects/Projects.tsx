@@ -24,20 +24,23 @@ type ProjectPropsType = {
 export const Projects = () => {
     const [tabs, setTabs] = useState('all')
     const projects: Array<ProjectPropsType> = [
-        {title: 'Todolist',
-            cover: todoImage, demoUrl: 'https://web-serge.github.io/todolist-vanilla-js/',
-            codeUrl: 'https://github.com/web-serge/todolist-vanilla-js', filter: 'javascript'},
+        {title: 'Todolist', cover: todoImage,
+            demoUrl: 'https://web-serge.github.io/todolist-vanilla-js/',
+            codeUrl: 'https://github.com/web-serge/todolist-vanilla-js',
+            filter: 'javascript'},
         {title: 'Audio Player', cover: orange,
             demoUrl: 'https://web-serge.github.io/audio-player-js/',
-            codeUrl: 'https://github.com/web-serge/audio-player-js', filter: 'landing'},
-        {title: 'Social Network', cover: socialImage, demoUrl: 'https://web-serge.github.io/audio-player-js/',
-            codeUrl: 'https://github.com/web-serge/audio-player-js', filter: 'react'},
+            codeUrl: 'https://github.com/web-serge/audio-player-js',
+            filter: 'javascript'},
+        {title: 'Social Network', cover: socialImage,
+            demoUrl: 'https://web-serge.github.io/audio-player-js/',
+            codeUrl: 'https://github.com/web-serge/audio-player-js',
+            filter: 'react'},
     ]
 
     // меняем значение активного таба
     const changeTab = (value: TabsType) => setTabs(value)
-
-    // крпируем массив
+    // копируем массив
     let copyProjects = [...projects]
     // фильтруем массив по значению таба
     if (tabs !== 'all') {
@@ -50,15 +53,17 @@ export const Projects = () => {
                 <Flex direction='column' align='center'>
                     <Heading as='h3' heading='h3' id='portfolio'>Quality Work</Heading>
                     <Heading as='h2' heading='h2' color={theme.colors.secondary} margin='0 0 3rem'>My Projects</Heading>
-                    <Flex as='ul' gap='2rem' margin='0 0 2.5rem' align='center' justify='center'>
+                    <Flex as='ul' gap='2rem' margin='0 0 2.5rem' align='center' justify='center' >
                         <TabMenu changeTab={changeTab} tab={tabs}/>
                     </Flex>
                     <Flex gap='2rem' wrap='wrap'>
-                        {copyProjects.map(item => {
-                            return <Flex key={item.title} direction='column' align='center'>
-                                <Heading as='h3' heading='h3'>{item.title}</Heading>
-                                <Project cover={item.cover} codeUrl={item.codeUrl} demoUrl={item.demoUrl} title={item.title}/>
-                            </Flex>
+                        { copyProjects.map(item => {
+                            return (
+                                <Flex key={item.title} direction='column' align='center'>
+                                    <Heading as='h3' >{item.title}</Heading>
+                                    <Project cover={item.cover} codeUrl={item.codeUrl} demoUrl={item.demoUrl} title={item.title}/>
+                                </Flex>
+                            )
                         })}
                     </Flex>
                 </Flex>

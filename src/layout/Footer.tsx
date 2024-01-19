@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {theme} from '../styles/Theme';
 
 export const Footer = () =>  {
-    const date = new Date
+    const date = new Date()
     return <StyledFooter><small>Copyright © {date.getFullYear()} Portfolio. All Rights Reserved</small></StyledFooter>
 }
 
