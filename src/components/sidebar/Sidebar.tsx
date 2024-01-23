@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import {theme} from '../../styles/Theme';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Icon, IconPropsType} from '../Icon';
 import photo from '../../assets/images/photo.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faXmark} from '@fortawesome/free-solid-svg-icons';
 
-export const Sidebar = () => {
+export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: () => void}) => {
     const navigationItems: Array<IconPropsType> = [
         {
             title: 'About',
@@ -56,20 +56,25 @@ export const Sidebar = () => {
         }
     ]
 
-    const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+    const [width, setWidth] = useState<number>(window.innerWidth)
+    const breakpoint: number = 767
 
-    function toggleMobileMenu() {
-        return mobileMenu ? setMobileMenu(false) : setMobileMenu(true)
-    }
+    useEffect( () => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize)
+        return () => window.removeEventListener('resize', handleWindowResize)
+    })
 
     return (
         <>
-            <Aside className={mobileMenu ? 'active' : ''}>
+            {/*<Aside className={props.mobileMenu ? 'active' : ''} > */}
+            {/*    <Aside className={breakpoint <= width || props.mobileMenu ? 'active' : ''} >*/}
+                <Aside className={breakpoint <= width || props.mobileMenu ? 'active' : ''} >
                 <a href="#welcome"><img src={photo} alt='randomPhoto'/></a>
                 <ul>
                     {navigationItems.map(item => {
                         return (
-                            <NavigationItem key={item.title} onClick={toggleMobileMenu}>
+                            <NavigationItem key={item.title} onClick={props.toggleMobileMenu}>
                                 <Icon color={item.color}
                                       fontAwesome={item.fontAwesome} prefix={item.prefix}
                                       type={item.type}
@@ -96,7 +101,12 @@ export const Sidebar = () => {
                     })}
                 </ul>
             </Aside>
-            <button onClick={toggleMobileMenu}><FontAwesomeIcon icon={faBars}/></button>
+
+            {props.mobileMenu ?
+                <button onClick={props.toggleMobileMenu}><FontAwesomeIcon icon={faXmark} /></button>
+                :
+                <button onClick={props.toggleMobileMenu}><FontAwesomeIcon icon={faBars}/></button>
+            }
         </>
     )
 }

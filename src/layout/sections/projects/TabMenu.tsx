@@ -21,7 +21,7 @@ export const TabMenu = (props: TabMenuPropsType) => {
     ]
 
     return (
-        <>
+        <TabsContainer>
             {tabsList.map(tab => {
                 return (
                     <li key={tab.title}>
@@ -35,7 +35,7 @@ export const TabMenu = (props: TabMenuPropsType) => {
                     </li>
                 )
             })}
-        </>
+        </TabsContainer>
     )
 }
 
@@ -44,6 +44,12 @@ type LinkPropsType = {
     active?: boolean
 }
 
+const TabsContainer = styled.ul `
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+`
 const Link = styled.a<LinkPropsType>`
   color: #556d91;
   font-weight: ${theme.weight.semiBold};

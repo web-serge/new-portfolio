@@ -50,17 +50,17 @@ ${props => props.heading === 'h2' && css `
     font-size: ${theme.size.h3}rem;
     white-space: nowrap;
     
-    &::before {
-      content: "";
-      position: absolute;
-      background: ${theme.colors.orange};
-      z-index: -1;
-      left: 120%;
-      right: -1.2rem;
-      top: -.9rem;
-      bottom: -.2rem;
-      transition: all 0.3s;
-    }
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   background: ${theme.colors.orange};
+    //   z-index: -1;
+    //   left: 120%;
+    //   right: -1.2rem;
+    //   top: -.9rem;
+    //   bottom: -.2rem;
+    //   transition: all 0.3s;
+    // }
 
     &::after {
       content: "";
@@ -73,20 +73,6 @@ ${props => props.heading === 'h2' && css `
       margin: auto;
       z-index: -1;
       transition: all 0.5s;
-    }
-
-    &:hover {
-      color: #ffffff;
-      transition-delay: 0.2s;
-    }
-
-    &:hover::before {
-      left: -1.2rem;
-      transition-delay: 0.2s;
-    }
-
-    &:hover::after {
-      right: 115%;
     }
   `}
 `

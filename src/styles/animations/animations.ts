@@ -26,11 +26,11 @@ export const Moveup = keyframes `
 
 export const ExitFromRight = keyframes `
   0% {
-    transform: translateX(100%);
+    transform: translateX(90%) scale(0);
     opacity: 0;
   }  
   100% {
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
     opacity: 1;
   }
 `

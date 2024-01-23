@@ -8,9 +8,12 @@ import {Skills} from './layout/sections/Skills';
 import {useState} from 'react';
 
 function App() {
+    const [mobileMenu, setMobileMenu] = useState<boolean>(false);
+    const toggleMobileMenu = () => mobileMenu ? setMobileMenu(false) : setMobileMenu(true)
+
     return (
-        <div className='App'>
-            <Sidebar/>
+        <div className={ mobileMenu ? 'App hidden' : 'App'}>
+            <Sidebar mobileMenu={mobileMenu} toggleMobileMenu={toggleMobileMenu}/>
             <Welcome/>
             <About/>
             <Skills/>

@@ -17,22 +17,22 @@ export const Contacts = () => {
                     <Heading as='h2' heading='h2' color={theme.colors.secondary}>Get In Touch</Heading>
                     <Form/>
                     <Flex as={'ul'} justify='center' gap='3rem' wrap={'wrap'} margin={'0'}>
-                        <Flex as={'li'} direction='column' justify='center' align='center' flex='1 1 auto' width={'17rem'}>
+                        <Flex as={'li'} justify='flex-start' direction='column' align='center' flex='1 1 auto' width={'20rem'}>
+                            <Span color={theme.colors.cyan} size='3rem'>{<FontAwesomeIcon icon={'phone-volume'}/>}</Span>
+                            <Heading heading='h3' as='h3'>Contact Me</Heading>
+                            <Span textAlign='center' as='a' href='tel:+78442433333'>+7 (844) 243-33-33</Span>
+                        </Flex>
+                        <Flex as={'li'} direction='column' justify='center' align='center' flex='1 1 auto' width={'20rem'}>
                             <Span color={theme.colors.location} size='3rem'>{<FontAwesomeIcon icon={'location-dot'}/>}</Span>
                             <Heading heading='h3' as='h3'>Location</Heading>
                             <Span textAlign='center' as='a' href={'https://maps.app.goo.gl/AfqSLq9xtJa2hrXN9'} target='_blank'>
                                 st. Embankment of the 62nd Army, 28, Volgograd, 400005
                             </Span>
                         </Flex>
-                        <Flex as={'li'} justify='flex-start' direction='column' align='center' flex='1 1 auto' width={'17rem'}>
-                            <Span color={theme.colors.cyan} size='3rem'>{<FontAwesomeIcon icon={'phone-volume'}/>}</Span>
-                            <Heading heading='h3' as='h3'>Contact Us</Heading>
-                            <Span textAlign='center' as='a' href='tel:+78442433333'>+7 (844) 243-33-33</Span>
-                        </Flex>
-                        <Flex as={'li'} justify='flex-start' direction='column' align='center' flex='1 1 auto' width={'17rem'}>
+                        <Flex as={'li'} justify='flex-start' direction='column' align='center' flex='1 1 auto' width={'20rem'}>
                             <Span color={theme.colors.mail} size='3rem'>{<FontAwesomeIcon icon={'envelope-circle-check'}/>}</Span>
-                            <Heading heading='h3' as='h3'>Email Us</Heading>
-                            <Span as={'a'} textAlign='center' href='mailto:web-serge@outlook.com' space={'nowrap'}>web-serge@outlook.com</Span>
+                            <Heading heading='h3' as='h3'>Email Me</Heading>
+                            <Span as={'a'} textAlign='center' href='mailto:web-serge@outlook.com'>web-serge@outlook.com</Span>
                         </Flex>
                     </Flex>
                 </Flex>

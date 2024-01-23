@@ -9,19 +9,16 @@ import {theme} from '../../styles/Theme';
 import {Span} from '../../components/styled-html-tag/Span';
 import React from 'react';
 import {Heading} from '../../components/styled-html-tag/Headings';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
-
 
 export const Welcome = () => {
     return (
         <WelcomeSection id='welcome'>
-            <Flex align='center' justify='space-between' maxWidth='70vw' height='100%'>
+            <WelcomeContainer>
                 <Flex direction='column' align='flex-start' margin='0'>
                     <CustomSpan>HELLO!
                         <span> STRANGER!</span>
                     </CustomSpan>
-                    <Span weight={700} size='clamp(4.5rem, 10vw, 9.2rem)' color={theme.colors.cyan} margin='0 0 0 -.9rem'>
+                    <Span weight={700} size='clamp(4.5rem, 5vw, 9.2rem)' color={theme.colors.cyan} margin='0 0 0 -.5rem'>
                         I'm Serge
                     </Span>
                     <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Freelance Front End Developer</Heading>
@@ -41,7 +38,7 @@ export const Welcome = () => {
                     </pattern>
 
                 </svg>
-            </Flex>
+            </WelcomeContainer>
         </WelcomeSection>
     )
 }
@@ -54,28 +51,42 @@ const WelcomeSection = styled.section`
   transition: all 0.3s;
   animation: ${Moveup} 50s linear infinite;
   padding-left: 13rem;
-  
-  & svg {
-    min-width: 20rem;
-    animation: ${Mover} 5s linear infinite;
-
-    @media ${theme.media.mobile} {
-      max-width: 31rem;
-      max-height: 29rem;
-      overflow: hidden;
-      width: 100%;
-    }
-    
+  position: relative;
   }
 
   @media ${theme.media.mobile} {
-    padding: 0 .5rem;
+    padding: 1rem .5rem;
     height: max-content;
-    
-    & > div {
-      flex-direction: column-reverse;
-      align-items: center;
-      justify-content: center;
+  }
+`
+
+// welcome container
+const WelcomeContainer = styled.div `
+  display: flex;
+  height: 100%;
+  align-items: center;
+  width: 80vw;
+  margin: 0 auto;
+  
+  & svg {
+    position: absolute;
+    max-width: 80rem;
+    width: 100%;
+    right: 1%;
+    top: 1%;
+    z-index: -2;
+    min-width: 20rem;
+    animation: ${Mover} 5s linear infinite;
+  }
+  
+  @media screen and (max-width: 1100px) {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+    & svg {
+      position: static;
+      max-width: 50rem;
+      height: auto;
     }
   }
 `
@@ -83,8 +94,8 @@ const WelcomeSection = styled.section`
 // span с жирной линией на фоне + p
 const CustomSpan = styled.span`
   text-transform: uppercase;
-  padding: 12px 0 2px 18px;
-  margin-bottom: 5px;
+  padding: 1.2rem 0 .2rem 1.8rem;
+  margin-bottom: .5rem;
   position: relative;
   font-weight: 600;
   white-space: nowrap;

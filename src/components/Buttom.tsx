@@ -83,4 +83,8 @@ const StyledButton = styled.button<StyledButtonPropsType> `
     top: 50%;
     opacity: 1;
   }
+
+  @media screen and (max-width: 437px) {
+      width: 100%;
+  }
 `
