@@ -5,20 +5,22 @@ import styled from 'styled-components';
 import {theme} from '../../styles/Theme';
 import {Textarea} from './text-fields/Textarea';
 import emailjs from '@emailjs/browser';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 
 export const Form = () => {
-        const form = useRef<ElementRef<'form'>>(null);
-        const sendEmail = (e: any) => {
-            e.preventDefault();
-            if (!form.current) return
-            emailjs.sendForm('service_waovfet', 'template_iio3jpm', form.current, '0JnnOcAZwZanj7KRz')
-                .then((result) => {
-                    console.log(result.text);
-                }, (error) => {
-                    console.log(error.text);
-                });
-            e.target.reset()
-        };
+    const form = useRef<ElementRef<'form'>>(null);
+    const sendEmail = (e: any) => {
+        e.preventDefault();
+        if (!form.current) return
+        emailjs.sendForm('service_waovfet', 'template_iio3jpm', form.current, '0JnnOcAZwZanj7KRz')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset()
+    };
 
     return (
         <StyledFormContainer>
@@ -28,7 +30,10 @@ export const Form = () => {
                 <Input placeholder='Email Adress' type='email' required name={'user_email'}/>
                 <Input placeholder='Subject' required name={'subject'}/>
                 <Textarea required name={'message'}/>
-                <SInput type="submit" value={'Send 📧'} background={theme.colors.pink}/>
+                <Submit type="submit" background={theme.colors.pink}>
+                    <span>Send</span>
+                    <FontAwesomeIcon icon={faPaperPlane}/>
+                </Submit>
             </Grid>
         </StyledFormContainer>
     )
@@ -57,7 +62,7 @@ type StyledButtonPropsType = {
     margin?: string
 }
 
-const SInput = styled.input<StyledButtonPropsType> `
+const Submit = styled.button<StyledButtonPropsType>`
   color: #ffffff;
   line-height: 1;
   cursor: pointer;
@@ -66,31 +71,31 @@ const SInput = styled.input<StyledButtonPropsType> `
   border-radius: 3rem;
   border: transparent;
   background-color: ${props => props.background || theme.colors.orange};
-  box-shadow: 0 8px 20px 0 rgba(255, 196, 85, 0.3);
-  margin: ${props => props.margin};
-  
-  display: inline-flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  
-  position: relative;
-  overflow: hidden;
+
   min-width: 20rem;
   height: 6rem;
   transition: .3s;
+
+  & span {
+    margin-right: 1rem;
+  }
   
+  & svg {
+    transition: .3s;
+  }
+
   &:active, &:focus-visible {
     transform: scale(0.95);
     outline: none;
-    background: ${theme.colors.primary};
   }
-  
-  &:hover {
-    background: ${theme.colors.primary};
+
+  &:hover, &:focus-visible {
+    & svg {
+      transform: translateX(10px);
+    }
   }
 
   @media screen and (max-width: 437px) {
-      width: 100%;
+    width: 100%;
   }
 `

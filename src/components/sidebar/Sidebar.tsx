@@ -45,7 +45,7 @@ export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: (width: n
             color: '#0077b5'
         },
         {title: 'whatsapp', fontAwesome: 'whatsapp', prefix: 'fab', type: 'social', href: '#', color: '#25d366'},
-        {title: 'twitter', fontAwesome: 'twitter', prefix: 'fab', type: 'social', href: '#contact', color: '#55acee'},
+        {title: 'telegram', fontAwesome: 'telegram', prefix: 'fab', type: 'social', href: '#contact', color: '#55acee'},
         {
             title: 'instagram',
             fontAwesome: 'instagram',
