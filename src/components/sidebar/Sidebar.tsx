@@ -6,7 +6,7 @@ import photo from '../../assets/images/photo.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars, faXmark} from '@fortawesome/free-solid-svg-icons';
 
-export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: () => void}) => {
+export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: (width: number, breakpoint: number) => void}) => {
     const navigationItems: Array<IconPropsType> = [
         {
             title: 'About',
@@ -56,8 +56,12 @@ export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: () => voi
         }
     ]
 
+    const bodyRef = React.useRef(document.body)
+
     const [width, setWidth] = useState<number>(window.innerWidth)
     const breakpoint: number = 767
+
+    props.mobileMenu && width < breakpoint ? bodyRef.current.style.overflow = 'hidden' : bodyRef.current.style.overflow = 'auto'
 
     useEffect( () => {
         const handleWindowResize = () => setWidth(window.innerWidth)
@@ -67,14 +71,12 @@ export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: () => voi
 
     return (
         <>
-            {/*<Aside className={props.mobileMenu ? 'active' : ''} > */}
-            {/*    <Aside className={breakpoint <= width || props.mobileMenu ? 'active' : ''} >*/}
-                <Aside className={breakpoint <= width || props.mobileMenu ? 'active' : ''} >
-                <a href="#welcome"><img src={photo} alt='randomPhoto'/></a>
+                <Aside className={breakpoint <= width || props.mobileMenu ? 'active' : ''}>
+                <a href="#welcome"><img src={photo} alt='randomPhoto' onClick={() => {props.toggleMobileMenu(width, breakpoint)}}/></a>
                 <ul>
                     {navigationItems.map(item => {
                         return (
-                            <NavigationItem key={item.title} onClick={props.toggleMobileMenu}>
+                            <NavigationItem key={item.title} onClick={() => {props.toggleMobileMenu(width, breakpoint)}}>
                                 <Icon color={item.color}
                                       fontAwesome={item.fontAwesome} prefix={item.prefix}
                                       type={item.type}
@@ -103,9 +105,9 @@ export const Sidebar = (props: {mobileMenu: boolean, toggleMobileMenu: () => voi
             </Aside>
 
             {props.mobileMenu ?
-                <button onClick={props.toggleMobileMenu}><FontAwesomeIcon icon={faXmark} /></button>
+                <button onClick={() => {props.toggleMobileMenu(width, breakpoint)}}><FontAwesomeIcon icon={faXmark} /></button>
                 :
-                <button onClick={props.toggleMobileMenu}><FontAwesomeIcon icon={faBars}/></button>
+                <button onClick={() => {props.toggleMobileMenu(width, breakpoint)}}><FontAwesomeIcon icon={faBars}/></button>
             }
         </>
     )

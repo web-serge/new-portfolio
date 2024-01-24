@@ -25,13 +25,13 @@ export const TabMenu = (props: TabMenuPropsType) => {
             {tabsList.map(tab => {
                 return (
                     <li key={tab.title}>
-                        <Link href="#" id={tab.title} key={tab.title}
+                        <Tab id={tab.title} key={tab.title}
                               active={props.tab === tab.tabsValue}
                               onClick={(e) => {
                                   e.preventDefault()
                                   props.changeTab(tab.tabsValue)
                               }}>
-                            {tab.title}</Link>
+                            {tab.title}</Tab>
                     </li>
                 )
             })}
@@ -50,13 +50,16 @@ const TabsContainer = styled.ul `
   justify-content: center;
   gap: 1.2rem;
 `
-const Link = styled.a<LinkPropsType>`
+const Tab = styled.button<LinkPropsType>`
   color: #556d91;
   font-weight: ${theme.weight.semiBold};
   text-transform: uppercase;
   position: relative;
   transition: all .3s;
   white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
 
   &::before {
     content: '';
@@ -80,5 +83,13 @@ const Link = styled.a<LinkPropsType>`
   &:hover {
     color: ${theme.colors.pink};
     opacity: .8;
+  }
+
+  &:focus-visible {
+    outline: 1px solid #ccc8c8;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 1.2rem;
   }
 `

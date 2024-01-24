@@ -3,7 +3,7 @@ import banner_bg from '../../assets/images/banner_bg.png'
 import {Moveup} from '../../styles/animations/animations';
 import photo from '../../assets/images/photo.jpg'
 import {Mover} from '../../styles/animations/animations';
-import {Button} from '../../components/Buttom';
+import {Button} from '../../components/Button';
 import {Flex} from '../../components/Flex';
 import {theme} from '../../styles/Theme';
 import {Span} from '../../components/styled-html-tag/Span';
@@ -21,7 +21,7 @@ export const Welcome = () => {
                     <Span weight={700} size='clamp(4.5rem, 5vw, 9.2rem)' color={theme.colors.cyan} margin='0 0 0 -.5rem'>
                         I'm Serge
                     </Span>
-                    <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Freelance Front End Developer</Heading>
+                    <Heading as={'h1'} heading='h1' margin='0 0 2.7rem'>Frontend Developer</Heading>
                     <Flex justify='space-between' gap='1rem' width={'100%'}>
                         <Button type={'a'} primaryValue='Download CV' secondaryValue='Download &#128190;' download href='../../assets/images/orange.jpg'/>
                         <Button type={'a'} primaryValue='Send Message' secondaryValue='Send &#9993;'
@@ -108,7 +108,7 @@ const CustomSpan = styled.span`
     background: #ffc455;
     position: absolute;
     margin: 0 auto;
-    width: 47%;
+    width: 49%;
     z-index: -1;
     bottom: 0;
     left: 0;

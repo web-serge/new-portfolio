@@ -49,18 +49,6 @@ ${props => props.heading === 'h2' && css `
     font-weight: ${theme.weight.semiBold};
     font-size: ${theme.size.h3}rem;
     white-space: nowrap;
-    
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   background: ${theme.colors.orange};
-    //   z-index: -1;
-    //   left: 120%;
-    //   right: -1.2rem;
-    //   top: -.9rem;
-    //   bottom: -.2rem;
-    //   transition: all 0.3s;
-    // }
 
     &::after {
       content: "";

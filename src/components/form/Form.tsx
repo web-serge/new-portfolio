@@ -2,7 +2,6 @@ import {Input} from './text-fields/Input';
 import {Grid} from '../Grid';
 import React, {ElementRef, useRef} from 'react';
 import styled from 'styled-components';
-import {Button} from '../Buttom';
 import {theme} from '../../styles/Theme';
 import {Textarea} from './text-fields/Textarea';
 import emailjs from '@emailjs/browser';
@@ -18,6 +17,7 @@ export const Form = () => {
                 }, (error) => {
                     console.log(error.text);
                 });
+            e.target.reset()
         };
 
     return (
@@ -28,9 +28,7 @@ export const Form = () => {
                 <Input placeholder='Email Adress' type='email' required name={'user_email'}/>
                 <Input placeholder='Subject' required name={'subject'}/>
                 <Textarea required name={'message'}/>
-                {/*<Button type={'submit'} margin='0' primaryValue='Submit' secondaryValue='Submit &#8594;' background={theme.colors.pink}*/}
                 <SInput type="submit" value={'Send 📧'} background={theme.colors.pink}/>
-                {/*/>*/}
             </Grid>
         </StyledFormContainer>
     )
@@ -80,34 +78,16 @@ const SInput = styled.input<StyledButtonPropsType> `
   overflow: hidden;
   min-width: 20rem;
   height: 6rem;
+  transition: .3s;
   
-  // стилилизуем оба span
-  & span {
-    transform: translate(-50%, -50%);
-    white-space: nowrap;
-    position: absolute;
-    font-weight: 600;
-    transition: .5s;
-    left: 50%;
-    top: 50%;
-  }
-
-  // стилилизуем второй span
-  & span + span {
-    top: 120%;
-    opacity: 0;
+  &:active, &:focus-visible {
+    transform: scale(0.95);
+    outline: none;
+    background: ${theme.colors.primary};
   }
   
-  // hover для первого span
-  &:hover > span {
-    top: -20%;
-    opacity: 0;
-  }
-  
-  //// hover для второго span
-  &:hover span + span {
-    top: 50%;
-    opacity: 1;
+  &:hover {
+    background: ${theme.colors.primary};
   }
 
   @media screen and (max-width: 437px) {

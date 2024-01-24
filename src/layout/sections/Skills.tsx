@@ -30,7 +30,7 @@ export const Skills = () => {
                 <SkillsList>
                         {skills.map( (el, index) => {
                             return (
-                                <Fade direction={index > 2 ? 'right' : 'left'} delay={1}>
+                                <Fade direction={index > 2 ? 'right' : 'left'} delay={1} key={el.name}>
                                     <li key={el.name}>
                                         <FontAwesomeIcon fontSize={'6rem'} icon={icon({
                                             iconName: el.fontAwesome,

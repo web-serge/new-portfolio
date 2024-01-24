@@ -9,7 +9,7 @@ import socialImage from '../../../assets/images/social-network.jpg'
 import orange from '../../../assets/images/orange.jpg'
 import styled from 'styled-components';
 import {useState} from 'react';
-import {Button} from '../../../components/Buttom';
+import {Button} from '../../../components/Button';
 import {ExitFromRight} from '../../../styles/animations/animations';
 import {AnimatePresence, motion} from 'framer-motion';
 

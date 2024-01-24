@@ -54,6 +54,7 @@ const StyledButton = styled.button<StyledButtonPropsType> `
   overflow: hidden;
   min-width: 20rem;
   height: 6rem;
+  transition: .3s;
   
   // стилилизуем оба span
   & span {
@@ -86,5 +87,8 @@ const StyledButton = styled.button<StyledButtonPropsType> `
 
   @media screen and (max-width: 437px) {
       width: 100%;
+  }
+  &:active {
+    transform: scale(0.95);
   }
 `

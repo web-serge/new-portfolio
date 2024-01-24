@@ -9,7 +9,9 @@ import {useState} from 'react';
 
 function App() {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
-    const toggleMobileMenu = () => mobileMenu ? setMobileMenu(false) : setMobileMenu(true)
+    const toggleMobileMenu = (width: number, breakpoint: number) => {
+        mobileMenu && width < breakpoint? setMobileMenu(false) : setMobileMenu(true)
+    }
 
     return (
         <div className={ mobileMenu ? 'App hidden' : 'App'}>
